@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create article
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    {% if message %}
+      <figure class="text-center">
+        <blockquote class="blockquote">
+        <div class="shadow p-3 mb-5 bg-body rounded"><font color="red">{{ message }}</font></div>
+        </blockquote>
+      </figure>
+    {% endif %}
+  </div>
+
+
+<h3> On this page you can create article, please fill forms.</h3>
+<form action="/add" method="post">
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Category"  name="category" autofocus cl></textarea><br>
+  <label for="floatingTextarea">Categoty</label>
+</div>
+
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Title"  name="title"></textarea><br>
+  <label for="floatingTextarea">Title</label>
+</div>
+
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Article text"  style="height: 100px" name="textarticle"></textarea><br>
+  <label for="floatingTextarea2">Article text</label>
+</div>
+<button type="submit" class="btn btn-lg btn-success">Add article</button>
+</form>
+
+{% endblock %}

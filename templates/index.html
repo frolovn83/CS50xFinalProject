@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block main %}
+
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <div class="shadow p-3 mb-5 bg-body rounded">You can see all articles here.</div>
+  </blockquote>
+</figure>
+
+{% for article in articles%}
+    <div class="alert alert-info">
+      <h2> {{article.category}} </h2>
+      <p>{{article.title}}</p>
+      <p> Created by, {{article.user_name}}</p>
+      <p>{{article.createdate}}</p>
+      <div><a href="{{ article.id}}">More...</a></div>
+    </div>
+{%endfor%}
+
+{% endblock %}

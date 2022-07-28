@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create article
+{% endblock %}
+
+{% block main %}
+
+<h3> On this page you can edit article.</h3>
+<form action="/{{id_art}}/edit" method="post">
+
+    {% for article in edit%}
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Category"  name="category" autofocus cl>{{article.category}}</textarea><br>
+          <label for="floatingTextarea">Categoty</label>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Title"  name="title">{{article.title}}</textarea><br>
+          <label for="floatingTextarea">Title</label>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Article text"  style="height: 100px" name="textarticle">{{article.articletext}} </textarea><br>
+          <label for="floatingTextarea2">Article text</label>
+        </div>
+        <button type="submit" class="btn btn-lg btn-success">Edit</button>
+</form>
+    {%endfor%}
+
+{% endblock %}

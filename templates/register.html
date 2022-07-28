@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    {% if message %}
+      <figure class="text-center">
+        <blockquote class="blockquote">
+        <div class="shadow p-3 mb-5 bg-body rounded"><font color="red">{{ message }}</font></div>
+        </blockquote>
+      </figure>
+    {% endif %}
+    </div>
+  <form class="row g-3" action="/register" method="post">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" name="inputemail">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Name * </label>
+      <input type="text" class="form-control" name="inputname">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password * </label>
+      <input type="password" class="form-control" name="inputPassword">
+    </div>
+      <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Confirm Password * </label>
+      <input type="password" class="form-control" name="inputPasswordConfirmation">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-secondary">Sign in</button>
+    </div>
+  </form>
+{% endblock %}

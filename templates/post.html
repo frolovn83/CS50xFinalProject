@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    {% if message %}
+      <figure class="text-center">
+      <blockquote class="blockquote">
+      <div class="shadow p-3 mb-5 bg-body rounded"><font color="red">{{ message }}</font></div>
+      </blockquote>
+      </figure>
+    {% endif %}
+    </div>
+
+  {% for article in articles%}
+    <div class="alert alert-info">
+      <p class="h1">{{article.title}}</p>
+      <p class="h5">{{article.articletext}}</p>
+      <p class="h6"> Created by, {{article.user_name}}</p>
+      <p class="h6">{{article.createdate}}</p>
+    </div>
+    {% for comment in comments%}
+      <p class="h5">{{comment.coment}}</p>
+      <p class="h6">{{comment.username}}</p>
+      <p class="h6">{{comment.date}}</p><br>
+      <hr />
+    {%endfor%}
+    <a href="/{{article.id}}/del" class ="btn btn-danger">Delite Article</a>
+    <a href="/{{article.id}}/edit" class ="btn btn-warning">Edit Article</a><br>
+
+    <form action="/{{article.id}}/comment" method="post">
+      <div class="form-floating"><br>
+        <textarea class="form-control" placeholder="comment"  name="comment"></textarea><br>
+        <label for="floatingTextarea">Add Comment</label>
+      </div>
+      <button type="submit" class="btn btn-lg btn-success">Add Comment</button>
+    </form>
+  {%endfor%}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+   <div class="container">
+    {% if message %}
+      <figure class="text-center">
+      <blockquote class="blockquote">
+      <div class="shadow p-3 mb-5 bg-body rounded"><font color="red">{{ message }}</font></div>
+      </blockquote>
+      </figure>
+    {% endif %}
+   </div>
+
+<div class="container">
+<form action="/change" method="post">
+
+    <div>
+        <label for="exampleInputPassword1" class="form-label">Enter old password</label>
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" name="old" aria-describedby="emailHelp" autofocus>
+    </div>
+
+    <div>
+        <label for="exampleInputPassword1" class="form-label">Enter new password</label>
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" name="newpass" aria-describedby="emailHelp">
+    </div>
+
+    <div>
+        <label for="exampleInputPassword1" class="form-label">Confirm new password</label>
+    </div>
+
+    <div class="mb-3">
+        <input type="password" class="form-control" name="confpass">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock %}
+
+
+
+

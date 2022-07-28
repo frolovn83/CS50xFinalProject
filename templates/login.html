@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    {% if message %}
+      <figure class="text-center">
+      <blockquote class="blockquote">
+      <div class="shadow p-3 mb-5 bg-body rounded"><font color="red">{{ message }}</font></div>
+      </blockquote>
+      </figure>
+    {% endif %}
+    </div>
+  <div class="container">
+    <form action="/login" method="post">
+    <label for="exampleInputEmail1" class="form-label">Email address or login</label>
+    <div class="mb-3">
+      <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div>
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
+
+
+
+
